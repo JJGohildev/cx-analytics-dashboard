@@ -1,0 +1,50 @@
+AgentID,AgentName,Team,Location,HireDate
+A101,Sarah Camacho,Tier 1 Support,Remote,2022-04-15
+A102,Brandon Oneill,Tier 1 Support,Remote,2022-07-28
+A103,Christopher Hicks,Tier 1 Support,Regional Support Center - Raleigh,2023-01-13
+A104,Stephanie Willis,Tier 1 Support,Regional Support Center - Raleigh,2024-08-02
+A105,Wesley Fox,Tier 1 Support,Regional Support Center - Raleigh,2024-07-10
+A106,Jennifer Jones,Tier 1 Support,Remote,2025-07-05
+A107,Michael Clay,Tier 1 Support,Regional Support Center - Phoenix,2021-10-19
+A108,Michael Becker,Tier 1 Support,Regional Support Center - Raleigh,2023-08-22
+A109,Kevin Bean,Tier 1 Support,Regional Support Center - Columbus,2025-11-08
+A110,Brittany Miller,Tier 1 Support,Regional Support Center - Raleigh,2025-10-27
+A111,Matthew Gibson,Tier 1 Support,Remote,2026-06-12
+A112,Brooke Smith,Tier 1 Support,Regional Support Center - Raleigh,2026-07-08
+A113,Diana Tapia,Tier 1 Support,Regional Support Center - Raleigh,2023-04-18
+A114,Nicholas Navarro,Tier 1 Support,Regional Support Center - Columbus,2026-06-16
+A115,Ashley Lewis,Tier 1 Support,Remote,2021-11-29
+A116,Mason Morris,Tier 1 Support,Regional Support Center - Phoenix,2021-12-12
+A117,Benjamin Crane,Tier 1 Support,Regional Support Center - Raleigh,2023-07-30
+A118,Raymond Thompson,Tier 1 Support,Regional Support Center - Phoenix,2026-06-30
+A119,Sharon Davis,Tier 1 Support,Regional Support Center - Phoenix,2025-12-06
+A120,Carla Chan,Tier 1 Support,Remote,2023-02-04
+A121,Karen Valdez,Tier 1 Support,Remote,2022-04-10
+A122,John Reynolds,Tier 1 Support,Regional Support Center - Phoenix,2025-09-13
+A123,Emily Cohen,Tier 2 Support,Remote,2022-04-29
+A124,Mary Collier,Tier 2 Support,Regional Support Center - Raleigh,2024-03-26
+A125,Katherine Mcclure,Tier 2 Support,Regional Support Center - Raleigh,2024-01-19
+A126,Kristine Henderson,Tier 2 Support,Regional Support Center - Phoenix,2025-06-14
+A127,Robert Austin,Tier 2 Support,Regional Support Center - Phoenix,2023-11-03
+A128,Jessica Williams,Tier 2 Support,Regional Support Center - Columbus,2023-05-19
+A129,John Walker,Tier 2 Support,Regional Support Center - Columbus,2025-02-06
+A130,Brittney Simpson,Tier 2 Support,Remote,2024-10-25
+A131,Kelly Roberts,Tier 2 Support,Regional Support Center - Phoenix,2023-11-09
+A132,Susan Woods,Tier 2 Support,Regional Support Center - Phoenix,2022-05-31
+A133,Carl Leach,Returns & Refunds,Remote,2025-11-16
+A134,Alexandra Phillips,Returns & Refunds,Regional Support Center - Phoenix,2021-11-28
+A135,Angela Williams,Returns & Refunds,Regional Support Center - Raleigh,2022-03-17
+A136,Jeffery Davis,Returns & Refunds,Regional Support Center - Raleigh,2024-12-21
+A137,Laura King,Returns & Refunds,Remote,2022-12-11
+A138,Brad Gordon,Returns & Refunds,Remote,2022-03-29
+A139,Mary White,Returns & Refunds,Regional Support Center - Raleigh,2022-07-31
+A140,Phillip Miller,Returns & Refunds,Regional Support Center - Raleigh,2026-01-19
+A141,Elizabeth Matthews,Returns & Refunds,Remote,2023-12-11
+A142,Michael Hanson,Billing & Payments,Remote,2022-12-30
+A143,Vincent Savage,Billing & Payments,Regional Support Center - Phoenix,2022-08-09
+A144,Cody Burgess,Billing & Payments,Regional Support Center - Phoenix,2024-09-09
+A145,Seth Rodriguez,Billing & Payments,Regional Support Center - Phoenix,2024-05-04
+A146,Abigail Wilson,Billing & Payments,Regional Support Center - Raleigh,2022-07-12
+A147,John Holt,Billing & Payments,Regional Support Center - Raleigh,2026-01-05
+A148,Tracy Guzman,Billing & Payments,Regional Support Center - Columbus,2024-02-07
+A149,Lisa Dickson,Billing & Payments,Regional Support Center - Phoenix,2023-06-22
