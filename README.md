@@ -2,7 +2,7 @@
 
 An interactive customer-experience KPI dashboard, styled as a Power BI-style report, backed by a documented SQL + Excel/Power Query data pipeline.
 
-**[View the live dashboard →](#)** *(replace `#` with your GitHub Pages URL once enabled — see [Publishing the live demo](#publishing-the-live-demo) below)*
+**[View the live dashboard →](https://jjgohildev.github.io/cx-analytics-dashboard/)**
 
 `SQL` · `Excel (Power Query)` · `Power BI Desktop (DAX)` · `JavaScript / SVG`
 
