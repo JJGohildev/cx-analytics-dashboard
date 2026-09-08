@@ -1,11 +1,6 @@
 # Power BI data model
 
-A star schema: one fact table at interaction grain, four dimension tables. Every
-table below is a CSV already sitting in `../data/` — nothing new to generate
-except `dim_date.csv` and `dim_channel.csv`, which are included for exactly
-this purpose (the original data-generation script only produced the other
-six; a proper Power BI model needs a marked date table and benefits from a
-small sort-order dimension for Channel, so those two were added).
+The model uses one interaction-level fact table and five supporting dimensions: customer, agent, category, channel, and date. The source CSV files are included in the data folder.
 
 ```mermaid
 erDiagram

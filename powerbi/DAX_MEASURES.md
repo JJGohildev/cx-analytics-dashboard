@@ -1,18 +1,8 @@
 # DAX measures
 
-Written against the star schema in `DATA_MODEL.md`. I wrote these — I have
-not run them, because there is no Power BI engine in this environment to run
-them against. Every measure that feeds a number currently shown on the HTML
-dashboard has an **expected value** next to it, taken from the same
-independently-verified source data used in the project audit. Build the
-measure, put it in a card visual, and check it against the number given —
-that's your test, not my say-so.
+This document records measure definitions and reference values for the customer experience report. The reference values are comparison targets, not a completed validation log for every measure in the PBIX file.
 
-**Before writing any measure:** confirm `CSATScore`/`NPSScore` import as
-blank (not `0`) for un-surveyed rows — see the note at the end of
-`DATA_MODEL.md`. Every measure below relies on it.
-
----
+Validate measures using the same date, category, and channel filters as the reference calculation. Confirm that unanswered CSAT and NPS scores are imported as blanks rather than zeros.
 
 ## 1. Base measures (no time intelligence)
 

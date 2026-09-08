@@ -1,8 +1,8 @@
 # Build guide: Power BI Desktop
 
-Power BI Desktop is Windows-only and free — [download it here](https://www.microsoft.com/en-us/power-platform/products/power-bi/downloads) if you don't have it. There is no Mac version; if you're on a Mac, this needs a Windows VM or a borrowed/lab machine. Budget 30-45 minutes end to end, most of it in step 2.
+Use this guide to rebuild the report from the CSV files in the data folder. A completed PBIX file is included alongside this guide.
 
-This guide gets you from the CSVs in `../data/` to a published `.pbix` with a data model, DAX measures, and report pages that reconstruct what the HTML dashboard shows — built with your own hands, in the actual tool, so you can defend every part of it.
+The instructions describe the intended setup. Check the relationships, imported types, measures, and active filters against your own report as you work.
 
 ## 1. Import the data
 
