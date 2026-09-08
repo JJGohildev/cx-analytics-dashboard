@@ -1,37 +1,71 @@
-# Customer Experience Analytics Dashboard
+# Customer Experience Analytics: Case Study
 
-**Tools:** SQL &middot; Excel (Power Query) &middot; Power BI-style interactive reporting
-**Role:** CX/Data Analyst (solo project)
-**Timeline:** Data covers Jan 2024 &ndash; Aug 2026, modeled on a monthly support-operations reporting cycle
+I built this project to bring customer-support metrics into a report that is easier to explore than separate tables. My focus was on preparing the data, defining useful KPIs, and presenting the results in Power BI.
 
-### The problem
+**Tools:** Power BI, DAX, SQL, Excel, and Power Query  
+**Project type:** Personal portfolio project  
+**Data period:** January 2024 to August 2026
 
-Cedarbrook Home Goods' CX team tracked customer satisfaction, feedback patterns, and service performance across separate ticketing-system exports and spreadsheets that didn't always agree with each other. A rough week in support was hard to tell apart from a real trend, nobody could say with confidence which feedback categories were actually driving dissatisfaction, and by the time a monthly report was assembled the numbers it described were already stale. There was no single source of truth for "how is support actually performing," and no structured way to measure whether an intervention &mdash; more staffing, a new self-service tool &mdash; had moved the needle.
+Cedarbrook Home Goods is fictional, and the data is synthetic. The service disruption and self-service launch are scenarios built into the dataset, not events at a real employer or client.
 
-### Approach
+## Questions behind the report
 
-I rebuilt the reporting workflow from the raw data up:
+- How do ticket volume and customer satisfaction change over time?
+- Which feedback categories and support channels need closer attention?
+- How do response times and first-contact resolution differ around the simulated self-service launch?
 
-**Data cleaning (SQL + Power Query).** Ticketing-system exports arrive messy &mdash; inconsistent category and channel text, missing response-time values, duplicate rows, and the occasional keying error (a custom CSAT field that let a rep enter "6" on a 1&ndash;5 scale). I documented a repeatable Power Query cleaning pass (trim/normalize text, enforce data types, remove duplicates, range-check CSAT, fill gaps from category-month medians) so a bad export surfaces as an error at cleaning time rather than quietly skewing a KPI six steps downstream.
+These questions guided the measures and report structure.
 
-**Data validation.** Cleaning isn't trusted on faith &mdash; the SQL layer closes with nine explicit checks: orphan foreign keys, duplicate interaction IDs, CSAT/NPS scores outside their valid range, survey fields populated on interactions where no survey was sent, and resolution times that are logically impossible (shorter than the first-response time that preceded them). Every check returns zero against the cleaned data; a nonzero count is the trigger to go fix the upstream step before anyone reports off the numbers.
+## Preparing the data
 
-**KPI modeling (SQL).** With clean data landing in an interaction-grain fact table, a set of SQL queries computes the metrics that matter: company-wide monthly trend, feedback-category variance month over month, channel performance, a quarterly Net Promoter Score rollup, an agent/team scorecard, category volume mix, and a pre/post-launch variance summary comparing the self-service initiative's before and after.
+The project includes interaction records and supporting tables for customers, agents, feedback categories, channels, and dates. I used SQL and Excel Power Query to structure the data for analysis.
 
-**Dashboard.** The KPIs feed an interactive report modeled on a Power BI layout: six headline KPI tiles with 12-month sparklines, a feedback-category filter across three pages of trend charts (volume/CSAT, response/resolution time, first-contact-resolution/escalation), channel performance and channel-mix-over-time views, a feedback-category breakdown, a quarterly NPS chart, and a team scorecard &mdash; with hover tooltips on every chart so a value is never locked behind a color.
+The preparation workflow covers inconsistent text, duplicate records, missing values, and invalid survey scores. The Excel workbook includes a raw-export sample to document the cleaning process.
 
-### What the data showed
+Survey blanks need particular care. An interaction without a survey response should not contribute a zero to the average satisfaction score. Response and resolution times also need consistent units before comparison.
 
-Two events fell out of the KPIs once they were trustworthy and visible:
+The [SQL file](sql/cx_kpi_queries.sql) includes checks for duplicate IDs, missing related records, invalid survey values, and inconsistent response and resolution times. These checks should be rerun whenever the input changes. Including them in the repository does not guarantee that future refreshes will pass.
 
-A regional shipping-carrier outage during the Nov&ndash;Dec 2024 holiday peak pushed monthly ticket volume from a baseline of ~610 to 1,274 &mdash; more than double &mdash; concentrated in Shipping & Delivery and Returns & Refunds. Average CSAT dropped from 4.12 to 3.77, first-response time climbed from 12.9 to 22.8 minutes, and quarterly NPS fell from -28.7 to a trough of -45.7. The category-level breakdown made it immediately obvious the outage, not a company-wide service problem, was the driver: Shipping & Delivery's own CSAT fell to 3.65 in December while Billing & Payments barely moved.
+## Building the Power BI report
 
-A self-service returns portal and chatbot triage launched in March 2025 shows up as a clean, immediate step change in the opposite direction: first-contact resolution jumped from 62.7% in February to 75.0% in March and has held in the low-to-mid 70s% since; average first-response time dropped to 8.2 minutes, below its pre-outage baseline, driven largely by Chat conversations the bot now resolves near-instantly; and CSAT settled into a new high around 4.4&ndash;4.5. Quarterly NPS crossed from negative to positive within two quarters of launch and has hovered near breakeven since &mdash; a real recovery, even if the sample size is too small for the month-to-month wiggle to mean much on its own.
+I organized the report around an interaction-level fact table and supporting dimensions. This allows measures to be explored by date, category, channel, and team.
 
-### Outcome
+The main KPIs are ticket volume, average CSAT, NPS, average first-response time, average resolution time, and first-contact resolution rate. The [DAX documentation](powerbi/DAX_MEASURES.md) records definitions and reference values. Comparisons require matching filters, especially when NPS uses quarterly data while other cards show one month.
 
-- A single, validated source of truth for ticket volume, CSAT, NPS, response/resolution time, and first-contact resolution, refreshed from one cleaned fact table instead of reconciled spreadsheets.
-- A feedback-category and channel view that shows precisely where a service disruption is concentrated, instead of a company-wide average that would have buried it for weeks.
-- A documented before/after read on the self-service launch &mdash; first-contact resolution up roughly 12 points, first-response time down several minutes and below its pre-outage baseline, CSAT up over two tenths of a point &mdash; that a team can put in front of stakeholders to justify the investment and plan the next one.
+The report contains five pages: Overview, Trends, Channel performance, Feedback patterns, and Team scorecard. The first two are shown below.
 
-*Note: Cedarbrook Home Goods is a fictional company and this dataset is synthetically generated to demonstrate the workflow above &mdash; the pipeline, queries, and validation checks are built exactly as they would be against a real ticketing-system export.*
+### Overview
+
+The saved view shows August 2026, with 614 tickets, average CSAT of 4.41, and a first-contact resolution rate of 74.3%. These values describe the synthetic dataset.
+
+![Power BI Overview page](screenshots/CX_Overview.png)
+
+### Trends
+
+This page places ticket volume and customer satisfaction side by side so their changes can be compared over time. A category selector supports a closer look at individual types of feedback.
+
+This screenshot is filtered to **Billing & Payments**. It is not the company-wide view and should not be used to illustrate changes in Shipping & Delivery.
+
+![Power BI Trends page filtered to Billing and Payments](screenshots/CX_Trends.png)
+
+## Interpreting the scenarios
+
+The dataset includes a simulated shipping disruption in November and December 2024 and a self-service initiative beginning in March 2025. These provide comparison periods for the analysis.
+
+For the disruption period, category-level comparisons matter. A stable category can look different from one directly affected by the scenario. Ticket volume, satisfaction, and response times should be compared across categories before drawing an overall conclusion.
+
+For the self-service scenario, first-contact resolution and response time are useful starting points. A before-and-after comparison describes a change but does not establish that the initiative caused it. Channel mix, ticket volume, and survey participation also affect interpretation.
+
+## What the project delivers
+
+The repository brings together a native Power BI report, source tables, SQL queries, an Excel workbook, and supporting documentation. It demonstrates my work in data preparation, KPI reporting, and interactive analysis.
+
+A separate [web demo](https://jjgohildev.github.io/cx-analytics-dashboard/) presents the project using HTML, CSS, and JavaScript. It is not an embedded PBIX report. The screenshots above come from Power BI Desktop.
+
+## Limitations and next steps
+
+Synthetic data cannot establish real customer behavior or business results. Survey metrics also need response counts to provide context.
+
+The current Overview page has unused canvas space and some shortened KPI labels. My next design pass would tighten the layout, improve comparison labels, and clarify active filters. I would also reconcile the displayed measures against SQL with matching filters and record those checks explicitly.
+
+[Back to the project overview](README.md)
