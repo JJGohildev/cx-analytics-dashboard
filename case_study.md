@@ -44,7 +44,7 @@ The saved view shows August 2026, with 614 tickets, average CSAT of 4.41, and a 
 
 This page places ticket volume and customer satisfaction side by side so their changes can be compared over time. A category selector supports a closer look at individual types of feedback.
 
-This screenshot is filtered to **Billing & Payments**. It is not the company-wide view and should not be used to illustrate changes in Shipping & Delivery.
+The preview shows Billing & Payments. Use the category selector in Power BI to compare other feedback categories.
 
 ![Power BI Trends page filtered to Billing and Payments](screenshots/CX_Trends.png)
 
