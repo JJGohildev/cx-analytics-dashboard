@@ -4,7 +4,7 @@ I built this project to explore customer satisfaction and support performance us
 
 Cedarbrook Home Goods is fictional. This portfolio project uses synthetic data covering January 2024 to August 2026.
 
-**[Download the Power BI report](powerbi/CX_Analytics_PowerBI.pbix)** · **[Read the case study](case_study.md)** · **[View the web demo](https://jjgohildev.github.io/cx-analytics-dashboard/)**
+[Download Power BI report](powerbi/CX_Analytics_PowerBI.pbix) · [Read case study](case_study.md) · [View SQL](sql/cx_kpi_queries.sql)
 
 ## Power BI report previews
 
@@ -42,14 +42,9 @@ The Trends page compares ticket volume and average CSAT over time. This preview 
 | [SQL](sql/cx_kpi_queries.sql) | KPI queries and validation checks |
 | [Excel workbook](excel/CX_Analytics_KPI_Workbook.xlsx) | Data preparation workbook |
 | [Data](data/) | Source tables and dataset documentation |
-| [Web demo](index.html) | Separate HTML, CSS, and JavaScript dashboard |
 
 ## Open the report
 
 Download the PBIX file and open it in Power BI Desktop. If refreshing prompts for missing local files, update the source paths to your downloaded data folder. The build guide describes the expected tables and types.
-
-The web demo is not an embedded Power BI report. Its filters and presentation may differ from the saved Power BI pages.
-
-## Scope
 
 This is a personal portfolio project, not a client engagement. Simulated service events support analysis practice; changes in these KPIs do not establish real business impact or prove causation.
