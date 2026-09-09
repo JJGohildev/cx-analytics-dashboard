@@ -47,4 +47,6 @@ The Trends page compares ticket volume and average CSAT over time. This preview 
 
 Download the PBIX file and open it in Power BI Desktop. If refreshing prompts for missing local files, update the source paths to your downloaded data folder. The build guide describes the expected tables and types.
 
+## Scope 
+
 This is a personal portfolio project, not a client engagement. Simulated service events support analysis practice; changes in these KPIs do not establish real business impact or prove causation.
